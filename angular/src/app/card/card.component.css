@@ -1,0 +1,104 @@
+.card{
+  margin-left: 260px;
+  margin-right: 260px;
+
+}
+input{
+  font-size: 23px;
+  padding: 17px;
+  padding-left: 60px;
+}
+
+li{
+  padding-left: 10px !important;
+  border-color: #dee1e4;
+}
+.round {
+  position: relative;
+  float: left;
+}
+
+.round input[type="checkbox"] {
+  visibility: hidden;
+}
+
+.round label {
+   background-color: rgb(255, 255, 255);
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 27px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 28px;
+  opacity: 0.5;
+}
+
+.round label:after {
+  border: 2px solid green;
+  border-top: none;
+  border-right: none;
+  content: "";
+  height: 6px;
+  left: 7px;
+  opacity: 0;
+  position: absolute;
+  top: 8px;
+  transform: rotate(-45deg);
+  width: 12px;
+}
+
+.round input[type="checkbox"]:checked + label {
+
+  border-color: green;
+}
+
+.round input[type="checkbox"]:checked + label:after {
+  opacity: 1;
+  color: green;
+}
+.task{
+  margin-left: 50px;
+  font-size: 22px;
+  float: left;
+  color: rgb(68, 65, 65);
+  padding-top: 18px;
+  padding-bottom: 18px;
+  padding-right: 400px
+}
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+button{
+  padding-top: 10px;
+}
+.checked{
+  opacity: 0.5;
+  text-decoration:line-through;
+}
+.unchecked{
+  opacity: 1;
+  text-decoration: none;
+}
+.close{
+  opacity: 0;
+  margin-right: 20px;
+  margin-top: 15px;
+}
+.close :hover{
+  opacity: 0.7;
+}
+.full{
+  padding-right: 164px;
+}
+a{
+  font-size: 15px;
+}
+.highlight{
+  outline: 1px solid rgb(223, 150, 150);
+  
+}
