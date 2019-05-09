@@ -8,16 +8,21 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { CardComponent } from './card/card.component';
+import { TaskComponent } from './task/task.component';
+import { NavComponent } from './nav/nav.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CardComponent
+    CardComponent,
+    TaskComponent,
+    NavComponent
 
   ],
   imports: [
+
 
   BrowserModule,
     FormsModule,

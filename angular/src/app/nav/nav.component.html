@@ -1,0 +1,36 @@
+
+<!-- -- navigation -- -->
+<nav class="navbar navbar-expand-lg navbar-light">
+
+  <div  *ngIf= "posts?.length == 1; then thenBlock else elseBlock"></div>
+  <ng-template  #thenBlock>
+    <a class="navbar-brand text-muted mr-5" href="#">1 item left</a>
+  </ng-template>
+
+  <ng-template  #elseBlock>
+    <a class="navbar-brand text-muted mr-5" href="#">{{posts?.length}} items left</a>
+  </ng-template>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item">
+        <a class="nav-link ml-4" (click) ="all()" [class.highlight] = "highlightAll">All </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" (click)="onActive()" [class.highlight] = "highlightActive">Active</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link  mr-5" (click)="onComplete()" [class.highlight] = "highlightCompleted">Completed</a>
+      </li>
+
+      <!-- navigating only if checked task is present -->
+      
+      <li class="nav-item">
+        <a  class=" nav-link ml-3"  (click)="clearAll()">Clear completed</a>
+      </li>
+    </ul>
+  </div>
+</nav>

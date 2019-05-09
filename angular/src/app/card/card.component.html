@@ -7,71 +7,22 @@
     name ="text" class="border-0" (keyup.enter)= "onEnter()"
     autofocus autocomplete="off"  [(ngModel)] ="text" />
 
+    <!-- displaying tasks -->
+    <app-task  [posts] = "posts" 
+               [check] = "check" >
+    </app-task>
 
-  <ul class="list-group">
-    <li *ngFor= 'let post of posts' class="list-group-item text-left border-left-0
-      border-right-0 pt-0 pb-0 pr-0" >
+    <!-- navigation -->
+    <app-nav  (activeEvent)= "active($event)"
+              (allEvent)= "all($event)"
+              (completedEvent)= "complete($event)"
+              (clearEvent)= "clearAll($event)"
+              [highlightAll]="highlightAll"
+              [highlightActive]="highlightActive"
+              [highlightCompleted]="highlightCompleted"
+              [posts] = "posts"  [check] = "check">
+    </app-nav>
 
-      <!-- checkbox -->
-      <div class="round">
-        <input type="checkbox" class="myCheck" id="{{post._id}}" [checked]="post.done" />
-        <label for="{{post._id}}" class="mt-4" (click)="onCheck(post)" ></label>
-      </div>
-
-      <!-- text box for editing -->
-      <div class=""  *ngIf = "post['isEdit']">
-        <input type="text"  #text1 (keyup.enter)="onUpdate(post,text1.value)" (focusout)="onUpdate(post,text1.value)" 
-          value="{{post.task}}" class="full ml-5 pl-2" />
-      </div>
-
-      <!-- displaying tasks -->
-      <div class="task "  *ngIf = "!post['isEdit']" (dblclick)="update(post)" [class.checked]="post.done"   >
-        {{post.task}}
-      </div>
-
-      <!-- close button -->
-      <button *ngIf = "!post['isEdit']" type="button" class="close text-danger" aria-label="Close">
-        <span aria-hidden="true" (click)="delete(post)" >&times;</span>
-      </button>
-
-    </li>
-  </ul>
-
-
-
-  <!---- navigation ---->
-  <nav class="navbar navbar-expand-lg navbar-light">
-
-    <div  *ngIf= "posts?.length == 1; then thenBlock else elseBlock"></div>
-    <ng-template  #thenBlock>
-      <a class="navbar-brand text-muted mr-5" href="#">1 item left</a>
-    </ng-template>
-
-    <ng-template  #elseBlock>
-      <a class="navbar-brand text-muted mr-5" href="#">{{posts?.length}} items left</a>
-    </ng-template>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-
-        <li class="nav-item">
-          <a class="nav-link ml-4" (click) ="navigate('all') " [class.highlight]="highlightAll">All </a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" (click)="navigate(false)" [class.highlight]="highlightActive">Active</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link  mr-5" (click)="navigate(true)" [class.highlight]="highlightCompleted">Completed</a>
-        </li>
-
-        <!-- navigating only if checked task is present -->
-        <li class="nav-item">
-          <a  class=" nav-link ml-3" *ngIf = "check"  (click)="clearAll()">Clear completed</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+      
 </div>
 

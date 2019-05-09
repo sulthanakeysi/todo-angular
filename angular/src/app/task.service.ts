@@ -13,23 +13,20 @@ export class TaskService {
 
   constructor(private http: HttpClient) {
    }
+
    getData() {
       return this.http.get(this.url);
-
    }
 
    postData(post) {
-
       return this.http.post(this.url, post);
    }
 
    deleteData(post) {
-
      return this.http.delete(this.url + 'delete/' + post._id );
    }
 
    updateData(post, text1) {
-
      return this.http.put(this.url + 'update/' + post._id, text1 );
    }
 
@@ -50,7 +47,7 @@ export class TaskService {
      return this.http.get(this.url);
    }
 
-   completed(){
+   completed() {
      return this.http.get(this.url + 'completed');
    }
 }
